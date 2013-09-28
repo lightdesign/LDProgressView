@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C2E5D8E17F70A0700104247 /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2E5D8D17F70A0700104247 /* UIColor+RGBValues.m */; };
+		1C9213CD17F5D0C200B41CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213CC17F5D0C200B41CCC /* Foundation.framework */; };
+		1C9213CF17F5D0C200B41CCC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213CE17F5D0C200B41CCC /* CoreGraphics.framework */; };
+		1C9213D117F5D0C200B41CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213D017F5D0C200B41CCC /* UIKit.framework */; };
+		1C9213D717F5D0C200B41CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C9213D517F5D0C200B41CCC /* InfoPlist.strings */; };
+		1C9213D917F5D0C200B41CCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9213D817F5D0C200B41CCC /* main.m */; };
+		1C9213DD17F5D0C200B41CCC /* LDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9213DC17F5D0C200B41CCC /* LDAppDelegate.m */; };
+		1C9213E017F5D0C200B41CCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9213DE17F5D0C200B41CCC /* Main.storyboard */; };
+		1C9213E317F5D0C200B41CCC /* LDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9213E217F5D0C200B41CCC /* LDViewController.m */; };
+		1C9213E517F5D0C200B41CCC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9213E417F5D0C200B41CCC /* Images.xcassets */; };
+		1C9213EC17F5D0C200B41CCC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213EB17F5D0C200B41CCC /* XCTest.framework */; };
+		1C9213ED17F5D0C200B41CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213CC17F5D0C200B41CCC /* Foundation.framework */; };
+		1C9213EE17F5D0C200B41CCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C9213D017F5D0C200B41CCC /* UIKit.framework */; };
+		1C9213F617F5D0C200B41CCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C9213F417F5D0C200B41CCC /* InfoPlist.strings */; };
+		1C9213F817F5D0C200B41CCC /* LDProgressViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9213F717F5D0C200B41CCC /* LDProgressViewTests.m */; };
+		1C92140317F5D0D000B41CCC /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C92140217F5D0D000B41CCC /* LDProgressView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1C9213EF17F5D0C200B41CCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C9213C117F5D0C200B41CCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C9213C817F5D0C200B41CCC;
+			remoteInfo = LDProgressView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1C2E5D8C17F70A0700104247 /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValues.h"; sourceTree = "<group>"; };
+		1C2E5D8D17F70A0700104247 /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValues.m"; sourceTree = "<group>"; };
+		1C9213C917F5D0C200B41CCC /* LDProgressView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LDProgressView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C9213CC17F5D0C200B41CCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1C9213CE17F5D0C200B41CCC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1C9213D017F5D0C200B41CCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1C9213D417F5D0C200B41CCC /* LDProgressView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LDProgressView-Info.plist"; sourceTree = "<group>"; };
+		1C9213D617F5D0C200B41CCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C9213D817F5D0C200B41CCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C9213DA17F5D0C200B41CCC /* LDProgressView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LDProgressView-Prefix.pch"; sourceTree = "<group>"; };
+		1C9213DB17F5D0C200B41CCC /* LDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDAppDelegate.h; sourceTree = "<group>"; };
+		1C9213DC17F5D0C200B41CCC /* LDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDAppDelegate.m; sourceTree = "<group>"; };
+		1C9213DF17F5D0C200B41CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1C9213E117F5D0C200B41CCC /* LDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDViewController.h; sourceTree = "<group>"; };
+		1C9213E217F5D0C200B41CCC /* LDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDViewController.m; sourceTree = "<group>"; };
+		1C9213E417F5D0C200B41CCC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1C9213EA17F5D0C200B41CCC /* LDProgressViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LDProgressViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C9213EB17F5D0C200B41CCC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1C9213F317F5D0C200B41CCC /* LDProgressViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LDProgressViewTests-Info.plist"; sourceTree = "<group>"; };
+		1C9213F517F5D0C200B41CCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C9213F717F5D0C200B41CCC /* LDProgressViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDProgressViewTests.m; sourceTree = "<group>"; };
+		1C92140117F5D0D000B41CCC /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProgressView.h; sourceTree = "<group>"; };
+		1C92140217F5D0D000B41CCC /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProgressView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C9213C617F5D0C200B41CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9213CF17F5D0C200B41CCC /* CoreGraphics.framework in Frameworks */,
+				1C9213D117F5D0C200B41CCC /* UIKit.framework in Frameworks */,
+				1C9213CD17F5D0C200B41CCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9213E717F5D0C200B41CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9213EC17F5D0C200B41CCC /* XCTest.framework in Frameworks */,
+				1C9213EE17F5D0C200B41CCC /* UIKit.framework in Frameworks */,
+				1C9213ED17F5D0C200B41CCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C9213C017F5D0C200B41CCC = {
+			isa = PBXGroup;
+			children = (
+				1C9213D217F5D0C200B41CCC /* LDProgressView */,
+				1C9213F117F5D0C200B41CCC /* LDProgressViewTests */,
+				1C9213CB17F5D0C200B41CCC /* Frameworks */,
+				1C9213CA17F5D0C200B41CCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C9213CA17F5D0C200B41CCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213C917F5D0C200B41CCC /* LDProgressView.app */,
+				1C9213EA17F5D0C200B41CCC /* LDProgressViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C9213CB17F5D0C200B41CCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213CC17F5D0C200B41CCC /* Foundation.framework */,
+				1C9213CE17F5D0C200B41CCC /* CoreGraphics.framework */,
+				1C9213D017F5D0C200B41CCC /* UIKit.framework */,
+				1C9213EB17F5D0C200B41CCC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C9213D217F5D0C200B41CCC /* LDProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213DB17F5D0C200B41CCC /* LDAppDelegate.h */,
+				1C9213DC17F5D0C200B41CCC /* LDAppDelegate.m */,
+				1C9213DE17F5D0C200B41CCC /* Main.storyboard */,
+				1C9213E117F5D0C200B41CCC /* LDViewController.h */,
+				1C9213E217F5D0C200B41CCC /* LDViewController.m */,
+				1C92140117F5D0D000B41CCC /* LDProgressView.h */,
+				1C92140217F5D0D000B41CCC /* LDProgressView.m */,
+				1C2E5D8C17F70A0700104247 /* UIColor+RGBValues.h */,
+				1C2E5D8D17F70A0700104247 /* UIColor+RGBValues.m */,
+				1C9213E417F5D0C200B41CCC /* Images.xcassets */,
+				1C9213D317F5D0C200B41CCC /* Supporting Files */,
+			);
+			path = LDProgressView;
+			sourceTree = "<group>";
+		};
+		1C9213D317F5D0C200B41CCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213D417F5D0C200B41CCC /* LDProgressView-Info.plist */,
+				1C9213D517F5D0C200B41CCC /* InfoPlist.strings */,
+				1C9213D817F5D0C200B41CCC /* main.m */,
+				1C9213DA17F5D0C200B41CCC /* LDProgressView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1C9213F117F5D0C200B41CCC /* LDProgressViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213F717F5D0C200B41CCC /* LDProgressViewTests.m */,
+				1C9213F217F5D0C200B41CCC /* Supporting Files */,
+			);
+			path = LDProgressViewTests;
+			sourceTree = "<group>";
+		};
+		1C9213F217F5D0C200B41CCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C9213F317F5D0C200B41CCC /* LDProgressViewTests-Info.plist */,
+				1C9213F417F5D0C200B41CCC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C9213C817F5D0C200B41CCC /* LDProgressView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C9213FB17F5D0C200B41CCC /* Build configuration list for PBXNativeTarget "LDProgressView" */;
+			buildPhases = (
+				1C9213C517F5D0C200B41CCC /* Sources */,
+				1C9213C617F5D0C200B41CCC /* Frameworks */,
+				1C9213C717F5D0C200B41CCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LDProgressView;
+			productName = LDProgressView;
+			productReference = 1C9213C917F5D0C200B41CCC /* LDProgressView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1C9213E917F5D0C200B41CCC /* LDProgressViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C9213FE17F5D0C200B41CCC /* Build configuration list for PBXNativeTarget "LDProgressViewTests" */;
+			buildPhases = (
+				1C9213E617F5D0C200B41CCC /* Sources */,
+				1C9213E717F5D0C200B41CCC /* Frameworks */,
+				1C9213E817F5D0C200B41CCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1C9213F017F5D0C200B41CCC /* PBXTargetDependency */,
+			);
+			name = LDProgressViewTests;
+			productName = LDProgressViewTests;
+			productReference = 1C9213EA17F5D0C200B41CCC /* LDProgressViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C9213C117F5D0C200B41CCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Light Design";
+				TargetAttributes = {
+					1C9213E917F5D0C200B41CCC = {
+						TestTargetID = 1C9213C817F5D0C200B41CCC;
+					};
+				};
+			};
+			buildConfigurationList = 1C9213C417F5D0C200B41CCC /* Build configuration list for PBXProject "LDProgressView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C9213C017F5D0C200B41CCC;
+			productRefGroup = 1C9213CA17F5D0C200B41CCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C9213C817F5D0C200B41CCC /* LDProgressView */,
+				1C9213E917F5D0C200B41CCC /* LDProgressViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C9213C717F5D0C200B41CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9213E517F5D0C200B41CCC /* Images.xcassets in Resources */,
+				1C9213D717F5D0C200B41CCC /* InfoPlist.strings in Resources */,
+				1C9213E017F5D0C200B41CCC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9213E817F5D0C200B41CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9213F617F5D0C200B41CCC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C9213C517F5D0C200B41CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C2E5D8E17F70A0700104247 /* UIColor+RGBValues.m in Sources */,
+				1C9213DD17F5D0C200B41CCC /* LDAppDelegate.m in Sources */,
+				1C9213D917F5D0C200B41CCC /* main.m in Sources */,
+				1C9213E317F5D0C200B41CCC /* LDViewController.m in Sources */,
+				1C92140317F5D0D000B41CCC /* LDProgressView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1C9213E617F5D0C200B41CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C9213F817F5D0C200B41CCC /* LDProgressViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C9213F017F5D0C200B41CCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C9213C817F5D0C200B41CCC /* LDProgressView */;
+			targetProxy = 1C9213EF17F5D0C200B41CCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1C9213D517F5D0C200B41CCC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C9213D617F5D0C200B41CCC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1C9213DE17F5D0C200B41CCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C9213DF17F5D0C200B41CCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1C9213F417F5D0C200B41CCC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C9213F517F5D0C200B41CCC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C9213F917F5D0C200B41CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1C9213FA17F5D0C200B41CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1C9213FC17F5D0C200B41CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LDProgressView/LDProgressView-Prefix.pch";
+				INFOPLIST_FILE = "LDProgressView/LDProgressView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1C9213FD17F5D0C200B41CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LDProgressView/LDProgressView-Prefix.pch";
+				INFOPLIST_FILE = "LDProgressView/LDProgressView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1C9213FF17F5D0C200B41CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LDProgressView.app/LDProgressView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LDProgressView/LDProgressView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "LDProgressViewTests/LDProgressViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1C92140017F5D0C200B41CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LDProgressView.app/LDProgressView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LDProgressView/LDProgressView-Prefix.pch";
+				INFOPLIST_FILE = "LDProgressViewTests/LDProgressViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C9213C417F5D0C200B41CCC /* Build configuration list for PBXProject "LDProgressView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C9213F917F5D0C200B41CCC /* Debug */,
+				1C9213FA17F5D0C200B41CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C9213FB17F5D0C200B41CCC /* Build configuration list for PBXNativeTarget "LDProgressView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C9213FC17F5D0C200B41CCC /* Debug */,
+				1C9213FD17F5D0C200B41CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C9213FE17F5D0C200B41CCC /* Build configuration list for PBXNativeTarget "LDProgressViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C9213FF17F5D0C200B41CCC /* Debug */,
+				1C92140017F5D0C200B41CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C9213C117F5D0C200B41CCC /* Project object */;
+}
