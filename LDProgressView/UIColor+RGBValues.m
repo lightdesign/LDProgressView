@@ -33,7 +33,7 @@
     return [self isEqual:[UIColor clearColor]];
 }
 
-- (BOOL)highlightShouldBeDarker {
+- (BOOL)isLighterColor {
     const CGFloat* components = CGColorGetComponents(self.CGColor);
     return (components[0]+components[1]+components[2])/3 >= 0.5;
 }

@@ -14,9 +14,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[LDProgressView appearance] setColor:[UIColor colorWithRed:0.87f green:0.55f blue:0.09f alpha:1.00f]];
-    [[LDProgressView appearance] setFlat:@NO];
-    [[LDProgressView appearance] setAnimate:@YES];
     return YES;
 }
 							

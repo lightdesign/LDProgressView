@@ -16,6 +16,7 @@
 @end
 
 @implementation LDProgressView
+@synthesize animate=_animate;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -34,7 +35,7 @@
 }
 
 - (void)initialize {
-    self.progress = 0.0;
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setAnimate:(NSNumber *)animate {
@@ -43,6 +44,12 @@
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(incrementOffset) userInfo:nil repeats:YES];
     } else if (self.timer) {
         [self.timer invalidate];
+    }
+}
+
+- (void)setAnimateIfNotSet {
+    if (!self.animate) {
+        self.animate = @YES;
     }
 }
 
@@ -56,6 +63,7 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    [self setAnimateIfNotSet];
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawProgressBackground:context inRect:rect];
     if (self.progress > 0) {
@@ -144,8 +152,18 @@
     label.textAlignment = NSTextAlignmentRight;
     label.text = [NSString stringWithFormat:@"%.0f%%", self.progress*100];
     label.font = [UIFont boldSystemFontOfSize:17];
-    label.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
+    label.textColor = [baseLabelColor colorWithAlphaComponent:0.6];
     [label drawTextInRect:CGRectOffset(rect, -6, 0)];
+}
+
+#pragma mark - Accessors
+
+- (UIColor *)color {
+    if (!_color) {
+        return [UIColor colorWithRed:0.07 green:0.56 blue:1.0 alpha:1.0];
+    }
+    return _color;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "LDViewController.h"
+#import "LDProgressView.h"
 
 @interface LDViewController ()
 
@@ -14,9 +15,12 @@
 
 @implementation LDViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 100, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.87f green:0.55f blue:0.09f alpha:1.00f];
+    progressView.progress = 0.36;
+    [self.view addSubview:progressView];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

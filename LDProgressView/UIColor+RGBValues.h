@@ -17,7 +17,7 @@
 
 - (UIColor *)darkerColor;
 - (UIColor *)lighterColor;
-- (BOOL)highlightShouldBeDarker;
+- (BOOL)isLighterColor;
 - (BOOL)isClearColor;
 
 @end
