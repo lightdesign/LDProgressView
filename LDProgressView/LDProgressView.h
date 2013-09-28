@@ -12,10 +12,8 @@
 
 @property (nonatomic) CGFloat progress;
 
-@property (nonatomic, strong) UIColor *color;
-@property (nonatomic, strong) UIColor *progressStripeColor;
-
-@property (nonatomic) BOOL flat;
-@property (nonatomic) BOOL animate;
+@property (nonatomic, strong) UIColor *color UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) NSNumber *flat UI_APPEARANCE_SELECTOR;
+@property (nonatomic, strong) NSNumber *animate UI_APPEARANCE_SELECTOR;
 
 @end

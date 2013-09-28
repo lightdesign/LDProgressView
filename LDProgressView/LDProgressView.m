@@ -34,16 +34,12 @@
 }
 
 - (void)initialize {
-    self.flat = NO;
-    self.animate = YES;
-    self.offset = 0;
-    self.progress = 0.36;
-    self.color = [UIColor colorWithRed:0.87f green:0.55f blue:0.09f alpha:1.00f];
+    self.progress = 0.0;
 }
 
-- (void)setAnimate:(BOOL)animate {
+- (void)setAnimate:(NSNumber *)animate {
     _animate = animate;
-    if (animate) {
+    if ([animate boolValue]) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(incrementOffset) userInfo:nil repeats:YES];
     } else if (self.timer) {
         [self.timer invalidate];
@@ -62,7 +58,9 @@
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawProgressBackground:context inRect:rect];
-    [self drawProgress:context withFrame:rect];
+    if (self.progress > 0) {
+        [self drawProgress:context withFrame:rect];
+    }
 }
 
 - (void)drawProgressBackground:(CGContextRef)context inRect:(CGRect)rect {
@@ -95,7 +93,7 @@
     CGRect insetRect = CGRectInset(rectToDrawIn, 0.5, 0.5);
     
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:10];
-    if (self.flat) {
+    if ([self.flat boolValue]) {
         CGContextSetFillColorWithColor(context, self.color.CGColor);
         [roundedRect fill];
     } else {
