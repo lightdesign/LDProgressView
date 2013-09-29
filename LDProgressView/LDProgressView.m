@@ -13,6 +13,10 @@
 @interface LDProgressView ()
 @property (nonatomic) CGFloat offset;
 @property (nonatomic, strong) NSTimer *timer;
+
+// Animation of progress
+@property (nonatomic, strong) NSTimer *animationTimer;
+@property (nonatomic) CGFloat progressToAnimateTo;
 @end
 
 @implementation LDProgressView
@@ -44,6 +48,25 @@
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(incrementOffset) userInfo:nil repeats:YES];
     } else if (self.timer) {
         [self.timer invalidate];
+    }
+}
+
+- (void)setProgress:(CGFloat)progress {
+    self.progressToAnimateTo = progress;
+    if (self.animationTimer) {
+        [self.animationTimer invalidate];
+    }
+    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(incrementAnimatingProgress) userInfo:nil repeats:YES];
+}
+
+- (void)incrementAnimatingProgress {
+    if (_progress >= self.progressToAnimateTo-0.01 && _progress <= self.progressToAnimateTo+0.01) {
+        _progress = self.progressToAnimateTo;
+        [self.animationTimer invalidate];
+        [self setNeedsDisplay];
+    } else {
+        _progress = (_progress < self.progressToAnimateTo) ? _progress + 0.01 : _progress - 0.01;
+        [self setNeedsDisplay];
     }
 }
 
@@ -94,11 +117,14 @@
     [[UIColor grayColor] setFill];
     [roundedRectangleNegativePath fill];
     CGContextRestoreGState(context);
+
+    // Add clip for drawing progress
+    [roundedRect addClip];
 }
 
 - (void)drawProgress:(CGContextRef)context withFrame:(CGRect)frame {
     CGRect rectToDrawIn = CGRectMake(0, 0, frame.size.width * self.progress, frame.size.height);
-    CGRect insetRect = CGRectInset(rectToDrawIn, 0.5, 0.5);
+    CGRect insetRect = CGRectInset(rectToDrawIn, self.progress > 0.03 ? 0.5 : -0.5, 0.5);
     
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:10];
     if ([self.flat boolValue]) {
@@ -119,12 +145,16 @@
         CGGradientRelease(gradient);
         CGColorSpaceRelease(colorSpace);
     }
-    
+
+    if (self.progress != 1.0) {
+        [self drawStripes:context inRect:insetRect];
+    }
     CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
-    [self drawStripes:context inRect:insetRect];
     [roundedRect stroke];
-    
-    [self drawRightAlignedLabelInRect:insetRect];
+
+    if (self.progress > 0.13) {
+        [self drawRightAlignedLabelInRect:insetRect];
+    }
 }
 
 - (void)drawStripes:(CGContextRef)context inRect:(CGRect)rect {
@@ -147,14 +177,17 @@
 }
 
 - (void)drawRightAlignedLabelInRect:(CGRect)rect {
-    UILabel *label = [[UILabel alloc] initWithFrame:rect];
-    label.backgroundColor = [UIColor clearColor];
-    label.textAlignment = NSTextAlignmentRight;
-    label.text = [NSString stringWithFormat:@"%.0f%%", self.progress*100];
-    label.font = [UIFont boldSystemFontOfSize:17];
-    UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
-    label.textColor = [baseLabelColor colorWithAlphaComponent:0.6];
-    [label drawTextInRect:CGRectOffset(rect, -6, 0)];
+    if (rect.size.width > 40) {
+        UILabel *label = [[UILabel alloc] initWithFrame:rect];
+        label.adjustsFontSizeToFitWidth = YES;
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentRight;
+        label.text = [NSString stringWithFormat:@"%.0f%%", self.progress*100];
+        label.font = [UIFont boldSystemFontOfSize:17];
+        UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
+        label.textColor = [baseLabelColor colorWithAlphaComponent:0.6];
+        [label drawTextInRect:CGRectMake(6, 0, rect.size.width-12, rect.size.height)];
+    }
 }
 
 #pragma mark - Accessors
