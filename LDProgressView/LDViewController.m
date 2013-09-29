@@ -10,18 +10,42 @@
 #import "LDProgressView.h"
 
 @interface LDViewController ()
-
+@property (nonatomic, strong) NSMutableArray *progressViews;
 @end
 
 @implementation LDViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 100, self.view.frame.size.width-40, 22)];
-    progressView.color = [UIColor colorWithRed:0.87f green:0.55f blue:0.09f alpha:1.00f];
-    progressView.progress = 0.36;
+    self.progressViews = [NSMutableArray array];
+
+    // default color, animated
+    LDProgressView *progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 130, self.view.frame.size.width-40, 22)];
+    progressView.progress = 0.40;
+    [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    // green, not animated
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 160, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+    progressView.progress = 0.40;
+    progressView.animate = @NO;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
+
+    // flat, default color, animated
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 190, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.73f green:0.10f blue:0.00f alpha:1.00f];
+    progressView.progress = 0.40;
+    progressView.flat = @YES;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
+
+}
+- (IBAction)changeValue:(UISegmentedControl *)sender {
+    for (LDProgressView *progressView in self.progressViews) {
+        progressView.progress = [[sender titleForSegmentAtIndex:sender.selectedSegmentIndex] floatValue]/100;
+    }
 }
 
 - (void)didReceiveMemoryWarning
