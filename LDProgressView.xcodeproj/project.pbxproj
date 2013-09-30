@@ -211,7 +211,7 @@
 				ORGANIZATIONNAME = "Light Design";
 				TargetAttributes = {
 					1C9213E917F5D0C200B41CCC = {
-						TestTargetID = 1C9213C817F5D0C200B41CCC;
+						TestTargetID = 1C9213C817F5D0C200B41CCC /* LDProgressView */;
 					};
 				};
 			};
