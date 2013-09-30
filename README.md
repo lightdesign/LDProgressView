@@ -8,7 +8,7 @@ A flat or gradient progress view with a simple color setter and customizable opt
 # Install
 
 ## Manually
-Download the zip of the project and put the following  in your project. Then simply import "LDProgressView.h" in the file(s) you would like to use it in.
+Download the zip of the project and put the classes `LDProgressView` and `UIColor+RGBValues` in your project. Then simply import "LDProgressView.h" in the file(s) you would like to use it in.
 
 ## CocoaPods
 Add this to your Podfile: ```pod 'LDProgressView', '>= 1.0'```
@@ -40,6 +40,14 @@ progressView.progress = 0.40;
 progressView.flat = @YES;
 [self.view addSubview:progressView];
 
+```
+
+You can also configure every LDProgressView using the UIAppearence protocol, which can be done in your app delegate. Here's a sample of this type of configuration:
+
+```objc
+[[LDProgressView appearance] setColor:[UIColor purpleColor]];
+[[LDProgressView appearance] setFlat:@YES];
+[[LDProgressView appearance] setAnimate:@YES];
 ```
 
 # License (MIT)
