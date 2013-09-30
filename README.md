@@ -8,7 +8,7 @@ A flat or gradient progress view with a simple color setter and customizable opt
 # Install
 
 ## Manually
-Download the zip of the project and put the following  in your project. Then simply import "LDGradientButton.h" in the file(s) you would like to use it in.
+Download the zip of the project and put the following  in your project. Then simply import "LDProgressView.h" in the file(s) you would like to use it in.
 
 ## CocoaPods
 Add this to your Podfile: ```pod 'LDProgressView', '>= 1.0'```
