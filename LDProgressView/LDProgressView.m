@@ -8,11 +8,13 @@
 
 #import "LDProgressView.h"
 #import "UIColor+RGBValues.h"
-#define STRIPE_WIDTH 50
 
 @interface LDProgressView ()
 @property (nonatomic) CGFloat offset;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) CGFloat stripeWidth;
+@property (nonatomic, strong) UIImage *gradientProgress;
+@property (nonatomic) CGSize stripeSize;
 
 // Animation of progress
 @property (nonatomic, strong) NSTimer *animationTimer;
@@ -20,7 +22,7 @@
 @end
 
 @implementation LDProgressView
-@synthesize animate=_animate;
+@synthesize animate=_animate, color=_color;
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -78,7 +80,7 @@
 
 - (void)incrementOffset {
     if (self.offset >= 0) {
-        self.offset = -STRIPE_WIDTH;
+        self.offset = -self.stripeWidth;
     } else {
         self.offset += 1;
     }
@@ -146,7 +148,16 @@
     }
 
     if (self.progress != 1.0) {
-        [self drawStripes:context inRect:insetRect];
+        switch (self.type) {
+            case LDProgressGradient:
+                [self drawGradients:context inRect:insetRect];
+                break;
+            case LDProgressStripes:
+                [self drawStripes:context inRect:insetRect];
+                break;
+            default:
+                break;
+        }
     }
     CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
     [roundedRect stroke];
@@ -156,11 +167,23 @@
     }
 }
 
+- (void)drawGradients:(CGContextRef)context inRect:(CGRect)rect {
+    self.stripeSize = CGSizeMake(self.stripeWidth, rect.size.height);
+    CGContextSaveGState(context);
+    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10] addClip];
+    CGFloat xStart = self.offset;
+    while (xStart < rect.size.width) {
+        [self.gradientProgress drawAtPoint:CGPointMake(xStart, 0)];
+        xStart += self.stripeWidth;
+    }
+    CGContextRestoreGState(context);
+}
+
 - (void)drawStripes:(CGContextRef)context inRect:(CGRect)rect {
     CGContextSaveGState(context);
     [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10] addClip];
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] colorWithAlphaComponent:0.2].CGColor);
-    CGFloat xStart = self.offset, height = rect.size.height, width = STRIPE_WIDTH;
+    CGFloat xStart = self.offset, height = rect.size.height, width = self.stripeWidth;
     while (xStart < rect.size.width) {
         CGContextSaveGState(context);
         CGContextMoveToPoint(context, xStart, height);
@@ -191,11 +214,49 @@
 
 #pragma mark - Accessors
 
+- (UIImage *)gradientProgress {
+    if (!_gradientProgress) {
+        UIGraphicsBeginImageContext(self.stripeSize);
+        CGContextRef imageCxt = UIGraphicsGetCurrentContext();
+
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGFloat locations[] = {0.0, 0.5, 1.0};
+        NSArray *colors = @[(__bridge id)[UIColor clearColor].CGColor, (__bridge id)[[[self.color darkerColor] darkerColor] colorWithAlphaComponent:0.3].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+        CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
+
+        CGContextDrawLinearGradient(imageCxt, gradient, CGPointMake(0, self.stripeSize.height / 2), CGPointMake(self.stripeSize.width, self.stripeSize.height / 2), 0);
+
+        CGGradientRelease(gradient);
+        CGColorSpaceRelease(colorSpace);
+
+        _gradientProgress = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    return _gradientProgress;
+}
+
+- (void)setColor:(UIColor *)color {
+    _color = color;
+    self.gradientProgress = nil;
+}
+
 - (UIColor *)color {
     if (!_color) {
         return [UIColor colorWithRed:0.07 green:0.56 blue:1.0 alpha:1.0];
     }
     return _color;
+}
+
+- (CGFloat)stripeWidth {
+    switch (self.type) {
+        case LDProgressGradient:
+            _stripeWidth = 15;
+            break;
+        default:
+            _stripeWidth = 50;
+            break;
+    }
+    return _stripeWidth;
 }
 
 @end
