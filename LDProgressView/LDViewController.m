@@ -42,7 +42,14 @@
     progressView.type = LDProgressGradient;
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
-
+    
+    // solid style, default color, not animated, no text
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
+    progressView.showText = @NO;
+    progressView.progress = 0.40;
+    progressView.type = LDProgressSolid;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
 }
 - (IBAction)changeValue:(UISegmentedControl *)sender {
     for (LDProgressView *progressView in self.progressViews) {

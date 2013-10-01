@@ -72,12 +72,6 @@
     }
 }
 
-- (void)setAnimateIfNotSet {
-    if (!self.animate) {
-        self.animate = @YES;
-    }
-}
-
 - (void)incrementOffset {
     if (self.offset >= 0) {
         self.offset = -self.stripeWidth;
@@ -88,7 +82,6 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    [self setAnimateIfNotSet];
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self drawProgressBackground:context inRect:rect];
     if (self.progress > 0) {
@@ -162,7 +155,7 @@
     CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
     [roundedRect stroke];
 
-    if (self.progress > 0.13) {
+    if ([self.showText boolValue]) {
         [self drawRightAlignedLabelInRect:insetRect];
     }
 }
@@ -233,6 +226,20 @@
         UIGraphicsEndImageContext();
     }
     return _gradientProgress;
+}
+
+- (NSNumber *)animate {
+    if (_animate == nil) {
+        return @YES;
+    }
+    return _animate;
+}
+
+- (NSNumber *)showText {
+    if (_showText == nil) {
+        return @YES;
+    }
+    return _showText;
 }
 
 - (void)setColor:(UIColor *)color {
