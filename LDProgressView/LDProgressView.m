@@ -91,7 +91,7 @@
 
 - (void)drawProgressBackground:(CGContextRef)context inRect:(CGRect)rect {
     CGContextSaveGState(context);
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10];
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.borderRadius.floatValue];
     CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.51f green:0.51f blue:0.51f alpha:1.00f].CGColor);
     [roundedRect fill];
     
@@ -121,7 +121,7 @@
     CGRect rectToDrawIn = CGRectMake(0, 0, frame.size.width * self.progress, frame.size.height);
     CGRect insetRect = CGRectInset(rectToDrawIn, self.progress > 0.03 ? 0.5 : -0.5, 0.5);
     
-    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:10];
+    UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:self.borderRadius.floatValue];
     if ([self.flat boolValue]) {
         CGContextSetFillColorWithColor(context, self.color.CGColor);
         [roundedRect fill];
@@ -163,7 +163,7 @@
 - (void)drawGradients:(CGContextRef)context inRect:(CGRect)rect {
     self.stripeSize = CGSizeMake(self.stripeWidth, rect.size.height);
     CGContextSaveGState(context);
-    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10] addClip];
+    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.borderRadius.floatValue] addClip];
     CGFloat xStart = self.offset;
     while (xStart < rect.size.width) {
         [self.gradientProgress drawAtPoint:CGPointMake(xStart, 0)];
@@ -174,7 +174,7 @@
 
 - (void)drawStripes:(CGContextRef)context inRect:(CGRect)rect {
     CGContextSaveGState(context);
-    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:10] addClip];
+    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.borderRadius.floatValue] addClip];
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] colorWithAlphaComponent:0.2].CGColor);
     CGFloat xStart = self.offset, height = rect.size.height, width = self.stripeWidth;
     while (xStart < rect.size.width) {
@@ -264,6 +264,13 @@
             break;
     }
     return _stripeWidth;
+}
+
+- (NSNumber *)borderRadius {
+    if (!_borderRadius) {
+        return @(self.frame.size.height / 2.0);
+    }
+    return _borderRadius;
 }
 
 @end

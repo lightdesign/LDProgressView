@@ -1,11 +1,9 @@
-LDProgressView
+LDProgressView (v. 1.1)
 ==============
 
 A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics.
 
-**Note: New screenshot coming soon for upcoming version 1.1...**
-
-![LDProgressView](https://dl.dropboxusercontent.com/u/20180054/Github%20Resources/LDProgressView.gif)
+![LDProgressView](https://dl.dropboxusercontent.com/u/20180054/Github%20Resources/LDProgressView/LDProgressView-1.1.gif)
 
 # Install
 
@@ -13,7 +11,7 @@ A flat or gradient progress view with a simple color setter and customizable opt
 Download the zip of the project and put the classes `LDProgressView` and `UIColor+RGBValues` in your project. Then simply import "LDProgressView.h" in the file(s) you would like to use it in.
 
 ## CocoaPods
-Add this to your Podfile: ```pod 'LDProgressView', '>= 1.0'```
+Add this to your Podfile: ```pod 'LDProgressView', '>= 1.1'```
 
 To learn more about CocoaPods, please visit their [website](http://cocoapods.org).
 
@@ -28,18 +26,40 @@ progressView.progress = 0.40;
 [self.progressViews addObject:progressView];
 [self.view addSubview:progressView];
 
-// green, not animated
+// flat, green, animated
 progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 160, self.view.frame.size.width-40, 22)];
 progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+progressView.flat = @YES;
 progressView.progress = 0.40;
-progressView.animate = @NO;
+progressView.animate = @YES;
+[self.progressViews addObject:progressView];
 [self.view addSubview:progressView];
 
-// flat, default color, animated
+// progress gradient, red, animated
 progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 190, self.view.frame.size.width-40, 22)];
 progressView.color = [UIColor colorWithRed:0.73f green:0.10f blue:0.00f alpha:1.00f];
 progressView.progress = 0.40;
-progressView.flat = @YES;
+progressView.animate = @YES;
+progressView.type = LDProgressGradient;
+[self.progressViews addObject:progressView];
+[self.view addSubview:progressView];
+
+// solid style, default color, not animated, no text, less border radius
+progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
+progressView.showText = @NO;
+progressView.progress = 0.40;
+progressView.borderRadius = @5;
+progressView.type = LDProgressSolid;
+[self.progressViews addObject:progressView];
+[self.view addSubview:progressView];
+
+// stripe style, no border radius, default color, not animated
+progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-40, 22)];
+progressView.progress = 0.40;
+progressView.borderRadius = @0;
+progressView.type = LDProgressStripes;
+progressView.color = [UIColor orangeColor];
+[self.progressViews addObject:progressView];
 [self.view addSubview:progressView];
 
 ```
@@ -50,6 +70,7 @@ You can also configure every LDProgressView using the UIAppearence protocol, whi
 [[LDProgressView appearance] setColor:[UIColor purpleColor]];
 [[LDProgressView appearance] setFlat:@YES];
 [[LDProgressView appearance] setAnimate:@YES];
+[[LDProgressView appearance] setBorderRadius:@5];
 ```
 
 # License (MIT)
