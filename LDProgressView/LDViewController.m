@@ -43,13 +43,24 @@
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
     
-    // solid style, default color, not animated, no text
+    // solid style, default color, not animated, no text, less border radius
     progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
     progressView.showText = @NO;
     progressView.progress = 0.40;
+    progressView.borderRadius = @5;
     progressView.type = LDProgressSolid;
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
+    
+    // stripe style, no border radius, default color, not animated
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-40, 22)];
+    progressView.progress = 0.40;
+    progressView.borderRadius = @0;
+    progressView.type = LDProgressStripes;
+    progressView.color = [UIColor orangeColor];
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
+
 }
 - (IBAction)changeValue:(UISegmentedControl *)sender {
     for (LDProgressView *progressView in self.progressViews) {
