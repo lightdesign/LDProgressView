@@ -5,6 +5,15 @@ A flat or gradient progress view with a simple color setter and customizable opt
 
 ![LDProgressView](https://dl.dropboxusercontent.com/u/20180054/Github%20Resources/LDProgressView/LDProgressView-1.1.gif)
 
+# Changelog
+
+### Version 1.1 released! (10/11/2013)
+* New property: `borderRadius`
+* New progress fill types: `LDProgressStripes` & `LDProgressGradient`
+
+### Version 1.0 (09/30/2013)
+* Initial release
+
 # Install
 
 ## Manually
@@ -17,7 +26,7 @@ To learn more about CocoaPods, please visit their [website](http://cocoapods.org
 
 # How To Use
 
-Here are the three examples respectively as seen in the screenshot above:
+Here are the examples as seen in the screenshot above:
 
 ```objc
 // default color, animated
