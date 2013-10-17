@@ -3,7 +3,7 @@ LDProgressView (v. 1.1)
 
 A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics.
 
-![LDProgressView](https://dl.dropboxusercontent.com/u/20180054/Github%20Resources/LDProgressView/LDProgressView-1.1.gif)
+![LDProgressView](https://f.cloud.github.com/assets/634167/1355749/281debb4-376c-11e3-9eae-b07b4f14b01d.gif)
 
 # Changelog
 
