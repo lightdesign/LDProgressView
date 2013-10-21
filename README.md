@@ -7,6 +7,10 @@ A flat or gradient progress view with a simple color setter and customizable opt
 
 # Changelog
 
+### Coming soon...
+
+Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Stay tuned!
+
 ### Version 1.1 released! (10/11/2013)
 * New property: `borderRadius`
 * New progress fill types: `LDProgressStripes` & `LDProgressGradient`
