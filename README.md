@@ -9,7 +9,7 @@ A flat or gradient progress view with a simple color setter and customizable opt
 
 ### Coming soon...
 
-Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Stay tuned!
+Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Take a look at the [core_animation](https://github.com/lightdesign/LDProgressView/tree/core_animation) branch for new commits!
 
 ### Version 1.1 released! (10/11/2013)
 * New property: `borderRadius`
