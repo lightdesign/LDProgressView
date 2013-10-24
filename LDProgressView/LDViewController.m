@@ -40,6 +40,7 @@
     progressView.progress = 0.40;
     progressView.animate = @YES;
     progressView.type = LDProgressGradient;
+    progressView.background = [progressView.color colorWithAlphaComponent:0.8];
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
     

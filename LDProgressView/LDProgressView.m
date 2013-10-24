@@ -92,7 +92,7 @@
 - (void)drawProgressBackground:(CGContextRef)context inRect:(CGRect)rect {
     CGContextSaveGState(context);
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.borderRadius.floatValue];
-    CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.51f green:0.51f blue:0.51f alpha:1.00f].CGColor);
+    CGContextSetFillColorWithColor(context, self.background.CGColor);
     [roundedRect fill];
     
     UIBezierPath *roundedRectangleNegativePath = [UIBezierPath bezierPathWithRect:CGRectMake(-10, -10, rect.size.width+10, rect.size.height+10)];
@@ -271,6 +271,13 @@
         return @(self.frame.size.height / 2.0);
     }
     return _borderRadius;
+}
+
+- (UIColor *)background {
+    if (!_background) {
+        return [UIColor colorWithRed:0.51f green:0.51f blue:0.51f alpha:1.00f];
+    }
+    return _background;
 }
 
 @end
