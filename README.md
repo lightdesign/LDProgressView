@@ -50,6 +50,7 @@ progressView.color = [UIColor colorWithRed:0.73f green:0.10f blue:0.00f alpha:1.
 progressView.progress = 0.40;
 progressView.animate = @YES;
 progressView.type = LDProgressGradient;
+progressView.background = [progressView.color colorWithAlphaComponent:0.8];
 [self.progressViews addObject:progressView];
 [self.view addSubview:progressView];
 
@@ -77,6 +78,7 @@ You can also configure every LDProgressView using the UIAppearence protocol, whi
 
 ```objc
 [[LDProgressView appearance] setColor:[UIColor purpleColor]];
+[[LDProgressView appearance] setBackground:[UIColor redColor]];
 [[LDProgressView appearance] setFlat:@YES];
 [[LDProgressView appearance] setAnimate:@YES];
 [[LDProgressView appearance] setBorderRadius:@5];
