@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>LDProgressView by lightdesign</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>LDProgressView</h1>
+        <p>A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/lightdesign/LDProgressView" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/lightdesign/LDProgressView/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/lightdesign/LDProgressView/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="ldprogressview-v-11" class="anchor" href="#ldprogressview-v-11"><span class="octicon octicon-link"></span></a>LDProgressView (v. 1.1)</h1>
+
+<p>A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics.</p>
+
+<p><img src="https://f.cloud.github.com/assets/634167/1355749/281debb4-376c-11e3-9eae-b07b4f14b01d.gif" alt="LDProgressView"></p>
+
+<h1>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h1>
+
+<h3>
+<a name="coming-soon" class="anchor" href="#coming-soon"><span class="octicon octicon-link"></span></a>Coming soon...</h3>
+
+<p>Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Take a look at the <a href="https://github.com/lightdesign/LDProgressView/tree/core_animation">core_animation</a> branch for new commits!</p>
+
+<h3>
+<a name="version-11-released-10112013" class="anchor" href="#version-11-released-10112013"><span class="octicon octicon-link"></span></a>Version 1.1 released! (10/11/2013)</h3>
+
+<ul>
+<li>New property: <code>borderRadius</code>
+</li>
+<li>New progress fill types: <code>LDProgressStripes</code> &amp; <code>LDProgressGradient</code>
+</li>
+</ul><h3>
+<a name="version-10-09302013" class="anchor" href="#version-10-09302013"><span class="octicon octicon-link"></span></a>Version 1.0 (09/30/2013)</h3>
+
+<ul>
+<li>Initial release</li>
+</ul><h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<h2>
+<a name="manually" class="anchor" href="#manually"><span class="octicon octicon-link"></span></a>Manually</h2>
+
+<p>Download the zip of the project and put the classes <code>LDProgressView</code> and <code>UIColor+RGBValues</code> in your project. Then simply import "LDProgressView.h" in the file(s) you would like to use it in.</p>
+
+<h2>
+<a name="cocoapods" class="anchor" href="#cocoapods"><span class="octicon octicon-link"></span></a>CocoaPods</h2>
+
+<p>Add this to your Podfile: <code>pod 'LDProgressView', '&gt;= 1.1'</code></p>
+
+<p>To learn more about CocoaPods, please visit their <a href="http://cocoapods.org">website</a>.</p>
+
+<h1>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How To Use</h1>
+
+<p>Here are the examples as seen in the screenshot above:</p>
+
+<div class="highlight highlight-objc"><pre><span class="c1">// default color, animated</span>
+<span class="n">LDProgressView</span> <span class="o">*</span><span class="n">progressView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithFrame</span><span class="o">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">)];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="mf">0.40</span><span class="p">;</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">progressViews</span> <span class="n">addObject</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+
+<span class="c1">// flat, green, animated</span>
+<span class="n">progressView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithFrame</span><span class="o">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">)];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">colorWithRed</span><span class="o">:</span><span class="mf">0.00f</span> <span class="n">green</span><span class="o">:</span><span class="mf">0.64f</span> <span class="n">blue</span><span class="o">:</span><span class="mf">0.00f</span> <span class="n">alpha</span><span class="o">:</span><span class="mf">1.00f</span><span class="p">];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">flat</span> <span class="o">=</span> <span class="err">@</span><span class="nb">YES</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="mf">0.40</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">animate</span> <span class="o">=</span> <span class="err">@</span><span class="nb">YES</span><span class="p">;</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">progressViews</span> <span class="n">addObject</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+
+<span class="c1">// progress gradient, red, animated</span>
+<span class="n">progressView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithFrame</span><span class="o">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">)];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">colorWithRed</span><span class="o">:</span><span class="mf">0.73f</span> <span class="n">green</span><span class="o">:</span><span class="mf">0.10f</span> <span class="n">blue</span><span class="o">:</span><span class="mf">0.00f</span> <span class="n">alpha</span><span class="o">:</span><span class="mf">1.00f</span><span class="p">];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="mf">0.40</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">animate</span> <span class="o">=</span> <span class="err">@</span><span class="nb">YES</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">LDProgressGradient</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">background</span> <span class="o">=</span> <span class="p">[</span><span class="n">progressView</span><span class="p">.</span><span class="n">color</span> <span class="n">colorWithAlphaComponent</span><span class="o">:</span><span class="mf">0.8</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">progressViews</span> <span class="n">addObject</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+
+<span class="c1">// solid style, default color, not animated, no text, less border radius</span>
+<span class="n">progressView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithFrame</span><span class="o">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">)];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">showText</span> <span class="o">=</span> <span class="err">@</span><span class="nb">NO</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="mf">0.40</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">borderRadius</span> <span class="o">=</span> <span class="mi">@5</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">LDProgressSolid</span><span class="p">;</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">progressViews</span> <span class="n">addObject</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+
+<span class="c1">// stripe style, no border radius, default color, not animated</span>
+<span class="n">progressView</span> <span class="o">=</span> <span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithFrame</span><span class="o">:</span><span class="n">CGRectMake</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">22</span><span class="p">)];</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">progress</span> <span class="o">=</span> <span class="mf">0.40</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">borderRadius</span> <span class="o">=</span> <span class="mi">@0</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">LDProgressStripes</span><span class="p">;</span>
+<span class="n">progressView</span><span class="p">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">orangeColor</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">progressViews</span> <span class="n">addObject</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">view</span> <span class="n">addSubview</span><span class="o">:</span><span class="n">progressView</span><span class="p">];</span>
+
+</pre></div>
+
+<p>You can also configure every LDProgressView using the UIAppearence protocol, which can be done in your app delegate. Here's a sample of this type of configuration:</p>
+
+<div class="highlight highlight-objc"><pre><span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">appearance</span><span class="p">]</span> <span class="n">setColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">purpleColor</span><span class="p">]];</span>
+<span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">appearance</span><span class="p">]</span> <span class="n">setBackground</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">redColor</span><span class="p">]];</span>
+<span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">appearance</span><span class="p">]</span> <span class="n">setFlat</span><span class="o">:</span><span class="err">@</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">appearance</span><span class="p">]</span> <span class="n">setAnimate</span><span class="o">:</span><span class="err">@</span><span class="nb">YES</span><span class="p">];</span>
+<span class="p">[[</span><span class="n">LDProgressView</span> <span class="n">appearance</span><span class="p">]</span> <span class="n">setBorderRadius</span><span class="o">:</span><span class="mi">@5</span><span class="p">];</span>
+</pre></div>
+
+<h1>
+<a name="license-mit" class="anchor" href="#license-mit"><span class="octicon octicon-link"></span></a>License (MIT)</h1>
+
+<p>Copyright (C) 2013 Light Design <a href="mailto:lightdesigncoding@icloud.com">lightdesigncoding@icloud.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/lightdesign">lightdesign</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
