@@ -1,9 +1,9 @@
-LDProgressView (v. 1.1)
+LDProgressView (v. 1.2)
 ==============
 
 A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics.
 
-![LDProgressView](https://f.cloud.github.com/assets/634167/1355749/281debb4-376c-11e3-9eae-b07b4f14b01d.gif)
+![LDProgressView](https://f.cloud.github.com/assets/634167/1685941/3560e1ca-5ddf-11e3-9fe7-d32515e08be4.gif)
 
 # Changelog
 
@@ -11,7 +11,14 @@ A flat or gradient progress view with a simple color setter and customizable opt
 
 Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Take a look at the [core_animation](https://github.com/lightdesign/LDProgressView/tree/core_animation) branch for new commits!
 
-### Version 1.1 released! (10/11/2013)
+### Version 1.2 released! (12/05/2013)
+* You can now create an outline progress view through the following properties.
+* New property: `showBackground`
+* New property: `progressInset`
+* New property: `outerStrokeWidth`
+* New property: `showStroke`
+
+### Version 1.1 (10/11/2013)
 * New property: `borderRadius`
 * New progress fill types: `LDProgressStripes` & `LDProgressGradient`
 
