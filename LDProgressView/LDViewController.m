@@ -61,6 +61,40 @@
     progressView.color = [UIColor orangeColor];
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 300, self.view.frame.size.width-40, 22)];
+    label.text = @"Outline Progress Views";
+    label.font = [UIFont boldSystemFontOfSize:20];
+    [self.view addSubview:label];
+    
+    // flat, green, no text, progress inset, outer stroke, solid
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 330, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+    progressView.flat = @YES;
+    progressView.progress = 0.40;
+    progressView.animate = @YES;
+    progressView.showText = @NO;
+    progressView.showStroke = @NO;
+    progressView.progressInset = @5;
+    progressView.showBackground = @NO;
+    progressView.outerStrokeWidth = @3;
+    progressView.type = LDProgressSolid;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
+
+    // flat, purple, progress inset, outer stroke, solid
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 360, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor purpleColor];
+    progressView.flat = @YES;
+    progressView.progress = 0.40;
+    progressView.animate = @YES;
+    progressView.showStroke = @NO;
+    progressView.progressInset = @4;
+    progressView.showBackground = @NO;
+    progressView.outerStrokeWidth = @3;
+    progressView.type = LDProgressSolid;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
 
 }
 - (IBAction)changeValue:(UISegmentedControl *)sender {
