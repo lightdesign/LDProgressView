@@ -120,6 +120,9 @@
 - (void)drawProgress:(CGContextRef)context withFrame:(CGRect)frame {
     CGRect rectToDrawIn = CGRectMake(0, 0, frame.size.width * self.progress, frame.size.height);
     CGRect insetRect = CGRectInset(rectToDrawIn, self.progress > 0.03 ? 0.5 : -0.5, 0.5);
+    if (![self.showText boolValue]) {
+        insetRect = rectToDrawIn;
+    }
     
     UIBezierPath *roundedRect = [UIBezierPath bezierPathWithRoundedRect:insetRect cornerRadius:self.borderRadius.floatValue];
     if ([self.flat boolValue]) {
@@ -152,8 +155,10 @@
                 break;
         }
     }
-    CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
-    [roundedRect stroke];
+    if ([self.showStroke boolValue]) {
+        CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
+        [roundedRect stroke];
+    }
 
     if ([self.showText boolValue]) {
         [self drawRightAlignedLabelInRect:insetRect];
@@ -278,6 +283,13 @@
         return [UIColor colorWithRed:0.51f green:0.51f blue:0.51f alpha:1.00f];
     }
     return _background;
+}
+
+- (NSNumber *)showStroke {
+    if (!_showStroke) {
+        return @YES;
+    }
+    return _showStroke;
 }
 
 @end
