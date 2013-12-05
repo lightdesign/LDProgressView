@@ -83,9 +83,15 @@
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    [self drawProgressBackground:context inRect:rect];
+    if ([self.showBackground boolValue]) {
+        [self drawProgressBackground:context inRect:rect];
+    }
+    if (self.outerStrokeWidth) {
+        [self drawOuterStroke:context inRect:rect];
+    }
     if (self.progress > 0) {
-        [self drawProgress:context withFrame:rect];
+        float inset = self.progressInset.floatValue;
+        [self drawProgress:context withFrame:self.progressInset ? CGRectInset(rect, inset, inset) : rect];
     }
 }
 
@@ -117,8 +123,16 @@
     [roundedRect addClip];
 }
 
+- (void)drawOuterStroke:(CGContextRef)context inRect:(CGRect)rect {
+    float outerStrokeWidth = self.outerStrokeWidth.floatValue;
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, outerStrokeWidth / 2, outerStrokeWidth / 2) cornerRadius:self.borderRadius.floatValue];
+    [self.color setStroke];
+    bezierPath.lineWidth = outerStrokeWidth;
+    [bezierPath stroke];
+}
+
 - (void)drawProgress:(CGContextRef)context withFrame:(CGRect)frame {
-    CGRect rectToDrawIn = CGRectMake(0, 0, frame.size.width * self.progress, frame.size.height);
+    CGRect rectToDrawIn = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width * self.progress, frame.size.height);
     CGRect insetRect = CGRectInset(rectToDrawIn, self.progress > 0.03 ? 0.5 : -0.5, 0.5);
     if (![self.showText boolValue]) {
         insetRect = rectToDrawIn;
@@ -181,13 +195,13 @@
     CGContextSaveGState(context);
     [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:self.borderRadius.floatValue] addClip];
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] colorWithAlphaComponent:0.2].CGColor);
-    CGFloat xStart = self.offset, height = rect.size.height, width = self.stripeWidth;
+    CGFloat xStart = self.offset, height = rect.size.height, width = self.stripeWidth, y = rect.origin.y;
     while (xStart < rect.size.width) {
         CGContextSaveGState(context);
-        CGContextMoveToPoint(context, xStart, height);
+        CGContextMoveToPoint(context, xStart, height + y);
         CGContextAddLineToPoint(context, xStart + width * 0.25, 0);
         CGContextAddLineToPoint(context, xStart + width * 0.75, 0);
-        CGContextAddLineToPoint(context, xStart + width * 0.50, height);
+        CGContextAddLineToPoint(context, xStart + width * 0.50, height + y);
         CGContextClosePath(context);
         CGContextFillPath(context);
         CGContextRestoreGState(context);
@@ -203,10 +217,10 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentRight;
         label.text = [NSString stringWithFormat:@"%.0f%%", self.progress*100];
-        label.font = [UIFont boldSystemFontOfSize:17];
+        label.font = [UIFont boldSystemFontOfSize:17-self.progressInset.floatValue*1.75];
         UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
         label.textColor = [baseLabelColor colorWithAlphaComponent:0.6];
-        [label drawTextInRect:CGRectMake(6, 0, rect.size.width-12, rect.size.height)];
+        [label drawTextInRect:CGRectMake(rect.origin.x + 6, rect.origin.y, rect.size.width-12, rect.size.height)];
     }
 }
 
@@ -290,6 +304,13 @@
         return @YES;
     }
     return _showStroke;
+}
+
+- (NSNumber *)showBackground {
+    if (!_showBackground) {
+        return @YES;
+    }
+    return _showBackground;
 }
 
 @end

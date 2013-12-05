@@ -87,6 +87,9 @@ You can also configure every LDProgressView using the UIAppearence protocol, whi
 [[LDProgressView appearance] setAnimate:@YES];
 [[LDProgressView appearance] setShowStroke:@YES];
 [[LDProgressView appearance] setBorderRadius:@5];
+[[LDProgressView appearance] setOuterStrokeWidth:@3];
+[[LDProgressView appearance] setShowBackground:@NO];
+[[LDProgressView appearance] setProgressInset:@5];
 ```
 
 # License (MIT)
