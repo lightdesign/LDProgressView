@@ -46,6 +46,7 @@
     
     // solid style, default color, not animated, no text, less border radius
     progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor darkGrayColor];
     progressView.showText = @NO;
     progressView.progress = 0.40;
     progressView.borderRadius = @5;

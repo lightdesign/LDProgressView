@@ -53,4 +53,9 @@
     XCTAssertNotNil([[UIColor blackColor] lighterColor], @"converting a black color to a darker color should not return nil");
 }
 
+- (void)testGrayAndBlackColors {
+    XCTAssertNotNil([[UIColor grayColor] lighterColor], @"Getting a lighter gray color shouldn't be nil");
+    XCTAssertNotNil([[UIColor grayColor] darkerColor], @"Getting a darker gray color shouldn't be nil");
+}
+
 @end

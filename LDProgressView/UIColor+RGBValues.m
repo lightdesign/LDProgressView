@@ -41,24 +41,30 @@
 - (UIColor *)lighterColor {
     if ([self isEqual:[UIColor whiteColor]]) return [UIColor colorWithWhite:0.99 alpha:1.0];
     if ([self isEqual:[UIColor blackColor]]) return [UIColor colorWithWhite:0.01 alpha:1.0];
-    float hue, saturation, brightness, alpha;
-    if ([self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha])
+    float hue, saturation, brightness, alpha, white;
+    if ([self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
         return [UIColor colorWithHue:hue
                           saturation:saturation
                           brightness:MIN(brightness * 1.3, 1.0)
                                alpha:alpha];
+    } else if ([self getWhite:&white alpha:&alpha]) {
+        return [UIColor colorWithWhite:MIN(white * 1.3, 1.0) alpha:alpha];
+    }
     return nil;
 }
 
 - (UIColor *)darkerColor {
     if ([self isEqual:[UIColor whiteColor]]) return [UIColor colorWithWhite:0.99 alpha:1.0];
     if ([self isEqual:[UIColor blackColor]]) return [UIColor colorWithWhite:0.01 alpha:1.0];
-    float hue, saturation, brightness, alpha;
-    if ([self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha])
+    float hue, saturation, brightness, alpha, white;
+    if ([self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha]) {
         return [UIColor colorWithHue:hue
                           saturation:saturation
                           brightness:brightness * 0.75
                                alpha:alpha];
+    } else if ([self getWhite:&white alpha:&alpha]) {
+        return [UIColor colorWithWhite:MAX(white * 0.75, 0.0) alpha:alpha];
+    }
     return nil;
 }
 
