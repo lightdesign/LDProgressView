@@ -1,6 +1,8 @@
 LDProgressView (v. 1.2)
 ==============
 
+[![Build Status](https://travis-ci.org/lightdesign/LDProgressView.png)](https://travis-ci.org/lightdesign/LDProgressView)
+
 A flat or gradient progress view with a simple color setter and customizable options written in pure Core Graphics.
 
 ![LDProgressView](https://f.cloud.github.com/assets/634167/1685941/3560e1ca-5ddf-11e3-9fe7-d32515e08be4.gif)

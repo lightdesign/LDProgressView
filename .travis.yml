@@ -1,0 +1,5 @@
+language: objective-c
+before_install: brew uninstall xctool; brew install xctool --HEAD
+xcode_sdk: iphonesimulator
+xcode_project: LDProgressView.xcodeproj
+xcode_scheme: LDProgressView
