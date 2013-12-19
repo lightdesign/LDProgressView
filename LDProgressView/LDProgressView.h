@@ -17,6 +17,7 @@ typedef enum {
 @interface LDProgressView : UIView
 
 @property (nonatomic) CGFloat progress;
+@property (nonatomic) CGFloat labelProgress;
 
 @property (nonatomic, strong) UIColor *color UI_APPEARANCE_SELECTOR;
 @property (nonatomic, strong) UIColor *background UI_APPEARANCE_SELECTOR;
@@ -32,5 +33,7 @@ typedef enum {
 @property (nonatomic, strong) NSNumber *borderRadius UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic) LDProgressType type;
+
+- (void)overrideProgressText:(NSString *)progressText;
 
 @end

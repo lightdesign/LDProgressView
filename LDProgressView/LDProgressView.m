@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UIImage *gradientProgress;
 @property (nonatomic) CGSize stripeSize;
 
+@property (nonatomic, strong) NSString *progressTextOverride;
+
 // Animation of progress
 @property (nonatomic, strong) NSTimer *animationTimer;
 @property (nonatomic) CGFloat progressToAnimateTo;
@@ -216,7 +218,7 @@
         label.adjustsFontSizeToFitWidth = YES;
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentRight;
-        label.text = [NSString stringWithFormat:@"%.0f%%", self.progress*100];
+        label.text = self.progressTextOverride ? self.progressTextOverride : [NSString stringWithFormat:@"%.0f%%", self.progress*100];
         label.font = [UIFont boldSystemFontOfSize:17-self.progressInset.floatValue*1.75];
         UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
         label.textColor = [baseLabelColor colorWithAlphaComponent:0.6];
@@ -311,6 +313,11 @@
         return @YES;
     }
     return _showBackground;
+}
+
+- (void)overrideProgressText:(NSString *)progressText {
+    self.progressTextOverride = progressText;
+    [self setNeedsDisplay];
 }
 
 @end
