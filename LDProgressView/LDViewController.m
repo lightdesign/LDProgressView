@@ -29,6 +29,7 @@
     progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 160, self.view.frame.size.width-40, 22)];
     progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
     progressView.flat = @YES;
+    progressView.showBackgroundInnerShadow = @NO;
     progressView.progress = 0.40;
     progressView.animate = @YES;
     [self.progressViews addObject:progressView];
