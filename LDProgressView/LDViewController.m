@@ -51,6 +51,7 @@
     progressView.showText = @NO;
     progressView.progress = 0.40;
     progressView.borderRadius = @5;
+    progressView.animate = @NO;
     progressView.type = LDProgressSolid;
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
@@ -59,6 +60,7 @@
     progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-40, 22)];
     progressView.progress = 0.40;
     progressView.borderRadius = @0;
+    progressView.animate = @NO;
     progressView.type = LDProgressStripes;
     progressView.color = [UIColor orangeColor];
     [self.progressViews addObject:progressView];

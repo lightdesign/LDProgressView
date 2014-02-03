@@ -55,12 +55,18 @@
     }
 }
 
+
 - (void)setProgress:(CGFloat)progress {
     self.progressToAnimateTo = progress;
-    if (self.animationTimer) {
-        [self.animationTimer invalidate];
+    if ([self.animate boolValue]) {
+        if (self.animationTimer) {
+            [self.animationTimer invalidate];
+        }
+        self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(incrementAnimatingProgress) userInfo:nil repeats:YES];
+    } else {
+        _progress = progress;
+        [self setNeedsDisplay];
     }
-    self.animationTimer = [NSTimer scheduledTimerWithTimeInterval:0.008 target:self selector:@selector(incrementAnimatingProgress) userInfo:nil repeats:YES];
 }
 
 - (void)incrementAnimatingProgress {
