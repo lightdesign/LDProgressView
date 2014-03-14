@@ -9,11 +9,12 @@ A flat or gradient progress view with a simple color setter and customizable opt
 
 # Changelog
 
-### Coming soon...
+### Version 1.2.1 released! (3/14/2014)
+* Allow custom override of progress text
+* Allow disabling inner shadow using `showBackgroundInnerShadow` property
+* Allows changing animation flag that will be applied on next progress change
 
-Version 2.0 will have some great improvements that'll allow for all sorts of customizations and make writing your own drawing subclass for let's say a vertical background gradient will be much easier. It'll also take advantage of the CoreAnimation APIs so that different animation types can be easily achieved. Take a look at the [core_animation](https://github.com/lightdesign/LDProgressView/tree/core_animation) branch for new commits!
-
-### Version 1.2 released! (12/05/2013)
+### Version 1.2 (12/05/2013)
 * You can now create an outline progress view through the following properties.
 * New property: `showBackground`
 * New property: `progressInset`
