@@ -97,6 +97,11 @@
     progressView.showBackground = @NO;
     progressView.outerStrokeWidth = @3;
     progressView.type = LDProgressSolid;
+
+    progressView.textAlignment = NSTextAlignmentCenter;
+    [progressView overrideProgressText:@"Cool!"];
+    [progressView overrideProgressTextColor:[UIColor yellowColor]];
+
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
 

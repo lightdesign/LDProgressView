@@ -16,3 +16,6 @@ build/*
 .tags*
 tmp/
 logger
+
+/.DS_Store
+/LDProgressView.xcodeproj/xcuserdata/*.xcuserdatad/
