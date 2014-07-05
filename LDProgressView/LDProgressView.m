@@ -186,6 +186,9 @@
     if ([self.showStroke boolValue]) {
         CGContextSetStrokeColorWithColor(context, [[self.color darkerColor] darkerColor].CGColor);
         [roundedRect stroke];
+    } else {
+        CGContextSetStrokeColorWithColor(context, self.color.CGColor);
+        [roundedRect stroke];
     }
 
     if ([self.showText boolValue]) {
