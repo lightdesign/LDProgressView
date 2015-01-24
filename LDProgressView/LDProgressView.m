@@ -237,16 +237,24 @@
 }
 
 - (void)drawLabelInRect:(CGRect)rect {
-    if (rect.size.width > 40) {
-        UILabel *label = [[UILabel alloc] initWithFrame:rect];
-        label.adjustsFontSizeToFitWidth = YES;
-        label.backgroundColor = [UIColor clearColor];
+    UILabel *label = [[UILabel alloc] initWithFrame:rect];
+    label.backgroundColor = [UIColor clearColor];
+    label.text = self.progressTextOverride ? self.progressTextOverride : [NSString stringWithFormat:@"%.0f%%", self.progress*100];
+
+    UIFont *font = [UIFont systemFontOfSize:12];
+    CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName: font}];
+    float pointsPerPixel =  font.pointSize / size.height;
+
+    label.font = [UIFont boldSystemFontOfSize:rect.size.height * pointsPerPixel];
+    UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
+    label.textColor = self.progressTextColorOverride ? self.progressTextColorOverride : [baseLabelColor colorWithAlphaComponent:0.6];
+
+    CGFloat width = [label.text sizeWithAttributes:@{NSFontAttributeName: label.font}].width;
+    if (rect.size.width > width+8) {
         label.textAlignment = self.textAlignment;
-        label.text = self.progressTextOverride ? self.progressTextOverride : [NSString stringWithFormat:@"%.0f%%", self.progress*100];
-        label.font = [UIFont boldSystemFontOfSize:17-self.progressInset.floatValue*1.75];
-        UIColor *baseLabelColor = [self.color isLighterColor] ? [UIColor blackColor] : [UIColor whiteColor];
-        label.textColor = self.progressTextColorOverride ? self.progressTextColorOverride : [baseLabelColor colorWithAlphaComponent:0.6];
         [label drawTextInRect:CGRectMake(rect.origin.x + 6, rect.origin.y, rect.size.width-12, rect.size.height)];
+    } else {
+        [label drawTextInRect:CGRectMake(rect.origin.x + size.width + 8, rect.origin.y, width, rect.size.height)];
     }
 }
 
