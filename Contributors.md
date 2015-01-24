@@ -9,3 +9,4 @@ Here's a list of the contributors to this repository (thanks to you all!):
 * @jefflinwood
 * @ericertl
 * @DerrickC
+* @terryso
