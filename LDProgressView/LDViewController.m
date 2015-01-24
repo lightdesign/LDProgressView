@@ -34,9 +34,20 @@
     progressView.animate = @YES;
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
+    
+    // flat, green, animated, opposite animate direction
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 190, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
+    progressView.flat = @YES;
+    progressView.showBackgroundInnerShadow = @NO;
+    progressView.progress = 0.40;
+    progressView.animate = @YES;
+    progressView.animateDirection = LDAnimateDirectionBackward;
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
 
     // progress gradient, red, animated
-    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 190, self.view.frame.size.width-40, 22)];
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
     progressView.color = [UIColor colorWithRed:0.73f green:0.10f blue:0.00f alpha:1.00f];
     progressView.progress = 0.40;
     progressView.animate = @YES;
@@ -45,8 +56,19 @@
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
     
+    // progress gradient, red, animated, opposite animate direction
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-40, 22)];
+    progressView.color = [UIColor colorWithRed:0.73f green:0.10f blue:0.00f alpha:1.00f];
+    progressView.progress = 0.40;
+    progressView.animate = @YES;
+    progressView.type = LDProgressGradient;
+    progressView.animateDirection = LDAnimateDirectionBackward;
+    progressView.background = [progressView.color colorWithAlphaComponent:0.8];
+    [self.progressViews addObject:progressView];
+    [self.view addSubview:progressView];
+    
     // solid style, default color, not animated, no text, less border radius
-    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 220, self.view.frame.size.width-40, 22)];
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 280, self.view.frame.size.width-40, 22)];
     progressView.color = [UIColor darkGrayColor];
     progressView.showText = @NO;
     progressView.progress = 0.40;
@@ -57,7 +79,7 @@
     [self.view addSubview:progressView];
     
     // stripe style, no border radius, default color, not animated
-    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 250, self.view.frame.size.width-40, 22)];
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 310, self.view.frame.size.width-40, 22)];
     progressView.progress = 0.40;
     progressView.borderRadius = @0;
     progressView.animate = @NO;
@@ -66,13 +88,13 @@
     [self.progressViews addObject:progressView];
     [self.view addSubview:progressView];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 300, self.view.frame.size.width-40, 22)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 360, self.view.frame.size.width-40, 22)];
     label.text = @"Outline Progress Views";
     label.font = [UIFont boldSystemFontOfSize:20];
     [self.view addSubview:label];
     
     // flat, green, no text, progress inset, outer stroke, solid
-    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 330, self.view.frame.size.width-40, 22)];
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 390, self.view.frame.size.width-40, 22)];
     progressView.color = [UIColor colorWithRed:0.00f green:0.64f blue:0.00f alpha:1.00f];
     progressView.flat = @YES;
     progressView.progress = 0.40;
@@ -87,7 +109,7 @@
     [self.view addSubview:progressView];
 
     // flat, purple, progress inset, outer stroke, solid
-    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 360, self.view.frame.size.width-40, 22)];
+    progressView = [[LDProgressView alloc] initWithFrame:CGRectMake(20, 420, self.view.frame.size.width-40, 22)];
     progressView.color = [UIColor purpleColor];
     progressView.flat = @YES;
     progressView.progress = 0.40;

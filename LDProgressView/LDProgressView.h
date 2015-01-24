@@ -14,6 +14,11 @@ typedef enum {
     LDProgressSolid
 } LDProgressType;
 
+typedef enum {
+    LDAnimateDirectionForward,
+    LDAnimateDirectionBackward
+} LDAnimateDirection;
+
 @interface LDProgressView : UIView
 
 @property (nonatomic) CGFloat progress;
@@ -35,6 +40,7 @@ typedef enum {
 
 @property (nonatomic) NSTextAlignment textAlignment;
 @property (nonatomic) LDProgressType type;
+@property (nonatomic) LDAnimateDirection animateDirection;
 
 - (void)overrideProgressText:(NSString *)progressText;
 - (void)overrideProgressTextColor:(UIColor *)progressTextColor;

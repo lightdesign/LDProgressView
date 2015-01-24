@@ -83,11 +83,20 @@
 }
 
 - (void)incrementOffset {
-    if (self.offset >= 0) {
-        self.offset = -self.stripeWidth;
+    if (self.animateDirection == LDAnimateDirectionForward) {
+        if (self.offset >= 0) {
+            self.offset = -self.stripeWidth;
+        } else {
+            self.offset += 1;
+        }
     } else {
-        self.offset += 1;
+        if (self.offset <= -self.stripeWidth) {
+            self.offset = 0;
+        } else {
+            self.offset -= 1;
+        }
     }
+    
     [self setNeedsDisplay];
 }
 
