@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, LDProgressType) {
     LDProgressStripes,
     LDProgressGradient,
     LDProgressSolid
-} LDProgressType;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, LDAnimateDirection) {
     LDAnimateDirectionForward,
     LDAnimateDirectionBackward
-} LDAnimateDirection;
+};
 
 @interface LDProgressView : UIView
 
