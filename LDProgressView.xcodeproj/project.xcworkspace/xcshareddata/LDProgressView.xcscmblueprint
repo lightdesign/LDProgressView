@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "34293A8A0A032E39FC3E38033026A73D624BD07B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "34293A8A0A032E39FC3E38033026A73D624BD07B" : 9223372036854775807,
+    "6A233EC88B11BF5C6742A422CC86611DCFC21BE2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7569D334-4F99-4731-8600-029B2D5A5709",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "34293A8A0A032E39FC3E38033026A73D624BD07B" : "LDProgressView\/",
+    "6A233EC88B11BF5C6742A422CC86611DCFC21BE2" : "..\/RoleModel\/fieldx-journal"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LDProgressView",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LDProgressView.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:lightdesign\/LDProgressView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "34293A8A0A032E39FC3E38033026A73D624BD07B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:RoleModel\/fieldx-journal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6A233EC88B11BF5C6742A422CC86611DCFC21BE2"
+    }
+  ]
+}
