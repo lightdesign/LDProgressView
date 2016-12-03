@@ -30,7 +30,7 @@
 }
 
 - (void)testUIColorDarkerMethod {
-    float originalBrightness, darkerBrightness;
+    CGFloat originalBrightness, darkerBrightness;
     UIColor *color = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
     [color getHue:nil saturation:nil brightness:&originalBrightness alpha:nil];
     
@@ -42,7 +42,7 @@
 }
 
 - (void)testUIColorLighterMethod {
-    float originalBrightness, lighterBrightness;
+    CGFloat originalBrightness, lighterBrightness;
     UIColor *color = [UIColor colorWithRed:0.2 green:0.33 blue:0.54 alpha:1.0];
     [color getHue:nil saturation:nil brightness:&originalBrightness alpha:nil];
     
